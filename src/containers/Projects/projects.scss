@@ -1,0 +1,135 @@
+@import '../../style/main.scss';
+
+.projects {
+  background-color: var(--tertiary);
+  min-height: 100vh;
+  height: auto;
+  @media (max-width: 1550px) {
+    height: auto;
+  }
+  &_wrapper {
+    @include flex(column);
+    gap: 100px;
+    width: 100%;
+    margin: 0 auto;
+    @media (max-width: 575.98px) {
+      gap: 50px;
+    }
+    .wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(375px, 1fr)
+      ); /* Ajuste les colonnes en fonction de l'espace disponible */
+      grid-template-rows: auto;
+      row-gap: 30px;
+      column-gap: 5%;
+      @media (max-width: 575.98px) {
+        @include flex(column);
+        gap: 50px;
+      }
+      .map {
+        @include flex(column-reverse);
+        gap: 25px;
+        width: 100%;
+        h3 {
+          font-size: 1.2rem;
+          @media (max-width: 575.98px) {
+            display: none;
+          }
+        }
+      }
+      .card {
+        gap: 25px;
+        width: 100%;
+        height: 275px;
+        box-shadow: 0px 20px 20px -15px rgba(var(--accent-rgb), 0.5);
+
+        &_img {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+
+          .img {
+            width: 100%;
+            height: 100%;
+            @include flex;
+            overflow: hidden;
+            border-radius: 5px;
+
+            img {
+              width: 100%;
+              min-height: 100%;
+              object-fit: cover;
+              border-radius: 5px;
+              transition: all 0.4s;
+            }
+          }
+
+          .container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 5px;
+            top: 0;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.4s;
+            padding: 8%;
+            @include flex(column, space-between, flex-start);
+          }
+          &_technologies {
+            @include flex(row);
+            gap: 20px;
+          }
+          &_description {
+            text-align: start;
+          }
+          &_button {
+            @include flex(row, flex-start);
+            gap: 15px;
+            width: 100%;
+            button {
+              width: 120px;
+              height: 50px;
+              background-color: transparent;
+              border: 1px solid var(--text);
+              transition: 0.4s;
+              &:hover {
+                background-color: var(--text);
+                a {
+                  color: var(--background);
+                }
+              }
+              p {
+                font-size: 0.8rem;
+                color: var(--text);
+              }
+              a {
+                transition: 0.4s;
+              }
+            }
+          }
+        }
+      }
+    }
+    .card:hover .card_img img {
+      filter: blur(5px);
+      transform: scale(1.2);
+    }
+
+    .card:hover .container {
+      opacity: 1;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      background-color: hsla(0, 0%, 6%, 0.8);
+    }
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}

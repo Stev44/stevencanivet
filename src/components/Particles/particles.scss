@@ -1,0 +1,10 @@
+@import '../../style/main.scss';
+
+#tsparticles {
+  z-index: -10;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  flex: 1;
+}

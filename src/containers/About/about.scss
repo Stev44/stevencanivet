@@ -1,0 +1,119 @@
+@import '../../style/main.scss';
+
+.aboutSection {
+  min-height: 100vh;
+  height: auto;
+  @include flex(column);
+  .about {
+    gap: 100px;
+    @include flex(column);
+    position: relative;
+    @media (max-width: 575.98px) {
+      gap: 50px;
+    }
+    &_content {
+      @include flex;
+      position: relative;
+      .line {
+        position: absolute;
+        left: 8%;
+        height: 100%;
+        width: 1px;
+        background-color: var(--text);
+        @media (max-width: 575.98px) {
+          display: none;
+        }
+        @media (min-width: 1000px) and (max-width: 1249px) {
+          left: 4%;
+        }
+        @media (min-width: 575.98px) and (max-width: 1000px) {
+          display: none;
+        }
+      }
+    }
+    &_wrapper {
+      @include flex(column-reverse);
+      width: 60%;
+      gap: 60px;
+      @media (max-width: 575.98px) {
+        width: 100%;
+        padding: 0 20px 0 20px;
+      }
+      @media (min-width: 1000px) and (max-width: 1249px) {
+        width: 80%;
+      }
+      @media (min-width: 575.98px) and (max-width: 1000px) {
+        width: 100%;
+      }
+      &_qualities {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        justify-content: center;
+        column-gap: 5%;
+        width: 100%;
+        height: 120px;
+        @media (min-width: 401px) and (max-width: 575.98px) {
+          height: 80px;
+        }
+        @media (max-width: 400px) {
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+          height: 200px;
+          row-gap: 30px;
+        }
+        .quality {
+          @include flex(column);
+          width: 100%;
+          gap: 10px;
+          height: 100%;
+          background-color: var(--secondary_v2);
+          border-radius: 10px;
+          border: 1px solid var(--secondary_v2);
+          &_text {
+            font-size: 0.75rem;
+            @media (min-width: 480px) and (max-width: 575.98px) {
+              font-size: 0.58rem;
+            }
+            @media (min-width: 401px) and (max-width: 480px) {
+              font-size: 0.48rem;
+            }
+            @media (max-width: 400px) {
+              font-size: 0.75rem;
+            }
+          }
+          &_icon {
+            width: 32px;
+            height: 32px;
+            fill: var(--accent);
+            @media (max-width: 575.98px) {
+              width: 20px;
+              height: 20px;
+            }
+            @media (max-width: 400px) {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+      &_text {
+        line-height: 1.7;
+        @include flex(column, center, flex-start);
+        gap: 20px;
+        strong {
+          color: var(--accent);
+        }
+      }
+    }
+  }
+}
+
+.canva {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: -15px;
+  right: -200px;
+  fill: white;
+}

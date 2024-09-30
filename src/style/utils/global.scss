@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+@import './colors.scss';
+
+* {
+  font-family: 'Inter';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text);
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: var(--background);
+}
+
+.margin {
+  width: calc(100% - 400px);
+  @media (min-width: 0px) and (max-width: 850px) {
+    width: calc(100% - 40px);
+  }
+  @media (min-width: 1440px) and (max-width: 1660px) {
+    width: calc(100% - 300px);
+  }
+  @media (min-width: 1250px) and (max-width: 1439px) {
+    width: calc(100% - 200px);
+  }
+  @media (min-width: 850px) and (max-width: 1249px) {
+    width: calc(100% - 100px);
+  }
+}
+
+.padding {
+  padding: 30px 0 60px 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.underline {
+  @include flex(column, flex-end);
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: '';
+    height: 80%;
+    width: 100%;
+    display: block;
+    z-index: -1;
+    opacity: 40%;
+    position: absolute;
+    transition: all 0.3s ease;
+    background: linear-gradient(180deg, transparent 50%, var(--accent) 50%);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+}
+
+html {
+  font-size: 125%;
+  @media (max-width: 1440px) {
+    font-size: 112.5%;
+  }
+  @media (max-width: 1024px) {
+    font-size: 100%;
+  }
+  @media (max-width: 575.98px) {
+    font-size: 100%;
+  }
+} /* 16px */
+
+h1 {
+  font-size: 4.21rem; /* 67.36px */
+}
+
+h2 {
+  font-size: 2.5rem; /* 50.56px */
+  color: var(--text);
+  @media (max-width: 575.98px) {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+  font-size: 1.6rem; /* 28.48px */
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+small {
+  font-size: 0.75rem; /* 12px */
+}
+
+button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
